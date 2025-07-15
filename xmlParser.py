@@ -39,15 +39,12 @@ for url in second_half_urls:
     except Exception as e:
         print(f"Error processing {url}: {e}")
 
-# Flatten the dictionary into a list of dictionaries
 flat_data = []
 
 for filepath, urls in entry.items():
     for url in urls:
         flat_data.append({"LOC": filepath, "URLS": url})
 
-# Create long-format DataFrame
 df_long = pd.DataFrame(flat_data)
 
-# Save to Excel
 df_long.to_excel("parsed_urls_long_format.xlsx", index=False)
